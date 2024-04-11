@@ -1,0 +1,16 @@
+.list-link {
+    margin-bottom: 30px;
+}
+
+.item {
+    color: #b3b3b3;
+    margin-right: 30px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    
+    &.active {
+        color: #2f4d6f;
+        border-bottom: 3px solid #2f4d6f;
+    }
+}

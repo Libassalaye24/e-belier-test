@@ -1,0 +1,60 @@
+
+<div class="mx-3 my-6 p-4">
+    <h1 class="text-xl tracking-wide text-left  font-semibold ">Service client</h1>
+ 
+  <hr class="h-px my-4 bg-white border-0 dark:bg-gray-700">
+
+  <div class="grid grid-cols-2 gap-4 ">
+    <div class="shadow flex flex-col items-start justify-center w-full h-31 border border-gray-200 p-4 gap-4 rounded-lg">
+          <div class="text-gray-400 text-sm ">
+          <img src="../../../../../assets/icones/Others/call.svg" class="w-8" alt="">
+
+            Appelez - nous</div>
+          <div class="grid grid-cols-2 gap-4 ">
+            <div class=" text-1xl font-semibold text-pirmary"><span class="text-primary">+225 27 20 25 22 50</span></div>
+            <div class="mr-3 text-1xl font-semibold text-pirmary"><span class="text-primary">+225 27 20 25 22 50</span></div>
+
+          </div>
+    </div>
+    <div class="shadow flex flex-col items-start justify-center w-full h-31 border border-gray-200 p-4 gap-4 rounded-lg">
+      <div class="text-gray-400 text-sm ">
+        <img src="../../../../../assets/icones/Others/adress.svg" class="w-8" alt="">
+
+        Adresse</div>
+      <div class=" text-1xl font-semibold flex">Ciment Bélier, Abidjan, Cote d'ivoire
+      </div>
+      
+</div>
+    
+  </div>
+  <hr class="h-px my-4 bg-white border-0 dark:bg-gray-700">
+
+
+
+<h1 class="text-xl tracking-wide text-left text-ebelierLight font-semibold mt-3">Actions Rapides </h1>
+<div class="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-6 my-4 ">
+
+    <a type="button"  data-drawer-target="drawer-demande" data-drawer-show="drawer-demande" data-drawer-placement="right" aria-controls="drawer-demande"  class="cursor-pointer block group leading-normal border-l-2  max-w-sm p-4  border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <img src="../../../../../assets/icones/accueil/icones/newcom.svg" class="w-10" alt="">
+        </div>
+        <p class=" font-semibold text-primary text-start mt-2 ">Demande</p>
+    </a>
+   
+    <a type="button" data-drawer-target="drawer-reclamation" data-drawer-show="drawer-reclamation" data-drawer-placement="right" aria-controls="drawer-reclamation" routerLinkActive="router-link-active"   class="cursor-pointer block group leading-normal border-l-2 p-4  border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <img src="../../../../../assets/icones/accueil/icones/suivicom.svg" class="w-10" alt="">
+        </div>
+        <p class="font-semibold  text-primary text-start mt-2 ">Réclamation</p>
+    </a>      
+    <a type="button"   class="cursor-pointer block group leading-normal border-l-2 p-4  border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white ">
+      <div class="flex items-center">
+          <img src="../../../../../assets/icones/accueil/icones/suivicom.svg" class="w-10" alt="">
+      </div>
+      <p class="font-semibold  text-primary text-start mt-2 ">Suivi demandes / réclamations</p>
+  </a>      
+</div>
+<app-demande></app-demande>
+<app-reclamation></app-reclamation>
+
+</div>

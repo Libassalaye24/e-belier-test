@@ -1,0 +1,32 @@
+
+
+
+.table{
+    @apply w-full text-sm text-left text-gray-500 bg-gray-50;
+    .thead{
+        @apply text-gray-700 uppercase  border-gray-200 bg-gray-100 text-left text-xs font-semibold border-b-2  ;
+        .th{
+            @apply px-6 py-3;
+        }
+    }
+    .tbody{
+        .tr{
+            @apply bg-white border-b  hover:bg-gray-50;
+            .th{
+                @apply flex items-center px-6 py-4 text-gray-900 whitespace-nowrap;
+                .first-child{
+                    @apply pl-3;
+                    .up{
+                        @apply text-base font-semibold
+                    }
+                    .down{
+                        @apply font-normal text-gray-500;
+                    }
+                }
+            }
+            .td{
+                @apply px-6 py-4 text-gray-800;
+            }
+        }
+    }
+}

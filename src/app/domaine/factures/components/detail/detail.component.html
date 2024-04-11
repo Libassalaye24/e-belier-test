@@ -1,0 +1,64 @@
+<div class="mx-3 my-6 p-4 pt-2">
+  <app-breadcrumb></app-breadcrumb>
+  <div class="flex flex-col">
+
+    <h1 class="text-2xl tracking-wide text-left text-primary font-normal mt-2">Détails facture</h1>
+
+
+  </div>
+  <div class="mt-6 border-t border-gray-100 shadow bg-gray-100  rounded-lg">
+    <dl class="p-4 divide-y divide-gray-300">
+      <div class="px-2 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Numéro de facture</dt>
+        <dd class="mt-1 text-sm leading-6 font-semibold text-gray-700 sm:col-span-2 sm:mt-0">
+          N° {{ invoiceNumber }}
+        </dd>
+      </div>
+      <div class="px-2 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Date de facture</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ invoiceDate | date : 'dd/MM/yyyy'}}</dd>
+      </div>
+      <div class=" sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0"></div>
+     
+    </dl>
+
+   <p class="ml-4 font-semibold">Bons de livraison</p>
+    <div class="grid grid-cols-2 gap-4 flex flex-center p-4">
+      
+      <ng-container *ngIf="isLoading">
+        <div
+          class="block max-w-sm p-6 bg-white border border-gray-200 grid grid-cols-2 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+        >
+          <div role="status" class="max-w-sm animate-pulse">
+            <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
+            <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!isLoading">
+
+        <ng-container *ngFor="let item of deliveryList$; index as i">
+            <app-bl-block [blNumber]="item.vbeln_vf" [brtwr]="item.brtwr"
+             [product]="item.matxt" [quantity]="item.fkimg" (downloadClicked)="handleDownload($event)">
+            </app-bl-block>
+        </ng-container>
+        
+      </ng-container>
+
+      <ng-container *ngIf="!isLoading && !deliveryList$?.length">
+        <tr>
+            <td colspan="100%" class="text-center text-sm text-ebelierLight p-2">
+                Aucun élément disponible.
+            </td>
+        </tr>
+    </ng-container>
+  </div>
+  </div>
+ 
+
+</div>

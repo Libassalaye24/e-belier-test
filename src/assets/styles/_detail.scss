@@ -1,0 +1,108 @@
+
+.block-detail  {
+    margin-bottom: 50px;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 50px;
+    border-bottom: 2px solid rgba($color: #707070, $alpha: .13);
+}
+
+.item-detail{
+
+    &.block {
+        padding: 25px;
+        border-radius: 8px;
+        border: solid 1px #d3d3d3;
+        margin-right: 20px;
+    }
+
+    .item-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .product{
+        border: solid 0.5px #bebebe;
+        border-radius: 4px;
+
+        .product-title {
+            margin-top: 15px;
+            font-weight: 500;
+            line-height: 1.31;
+            font-size: 16px;
+        }
+
+        .product-type {
+            font-size: 12px;
+            font-weight: 600;
+            color: #667f92;
+            border-radius: 4px;
+            background-color: rgba($color: #667f92, $alpha: .15);
+            padding: 3px;
+        }
+
+        .product-desc {
+            color: #9f9f9f;
+            font-size: 12px;
+            margin-bottom: 30;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #202020;
+        }
+        
+    }
+    .qantity-price {
+        background-color: #efefef;
+        color: #404040;
+        padding: 20px;
+
+        .block-price {
+            margin-right: 40px;
+            .p-label {
+                color: #9f9f9f;
+                margin-bottom: 8px;
+            }
+        }
+    }
+
+    .block-numero {
+        border-radius: 8px;
+        border: solid 1px #d3d3d3;
+        padding: 25px;
+        margin-bottom: 15px;
+
+        .item-title {
+            margin-bottom: 10px;
+        }
+
+        .item-info {
+            margin-bottom: 10px;
+
+            .info-label {
+                color: #9f9f9f;
+            }
+        }
+    }
+}
+
+.block-slips {
+    .block-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+
+.block-table {
+    padding: 0;
+
+    .table {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

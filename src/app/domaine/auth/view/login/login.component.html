@@ -1,0 +1,31 @@
+<div class="h-full " >
+  <div class="bg-cover h-screen bg-no-repeat pt-36" style="background-image: url('../../../../../assets/images/bground-ebelier.png');">
+    <div class=" w-full flex justify-center items-center">
+      <div class=" p-6 bg-white border border-gray-200 rounded-lg shadow">
+        <ng-container *ngIf="component=='OTPLogin'">
+          <app-opt-login (nextComponent)="toggleComponent($event)" ></app-opt-login>
+        </ng-container>
+        <ng-container *ngIf="component=='confirmOTP'">
+          <app-confirm-otp (nextComponent)="toggleComponent($event)" [phoneNumber]="phoneNumber"></app-confirm-otp>
+        </ng-container>
+      </div>
+    </div>
+    <ng-container *ngIf="showCgu">
+      <div class="custombox-overlay custombox-fadein custombox-open bg-slate-100" ></div>
+      <div class="custombox-content custombox-x-center custombox-y-center custombox-fadein custombox-open" style="animation-duration: 300ms; animation-delay: 150ms;">
+          <div id="custom-modal" class="custom-modal-demo" style="display: block;">
+              <app-cgu (showCgu)="showCgu=$event" (nextComponent)="toggleComponent($event)"></app-cgu>
+          </div>
+      </div>
+    </ng-container>
+  </div>
+  <footer class="fixed bottom-0 left-0 z-20 w-full p-4 shadow md:flex md:items-center md:justify-between md:p-6 ">
+    <span class="text-sm text-white text-opacity-75 sm:text-center">© Ciment Bélier 2024. Tous droits réservés.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm text-opacity-75 font-medium text-white">
+        <li>
+          Politique de confidentialité | CGU
+        </li>
+    </ul>
+</footer>
+</div>

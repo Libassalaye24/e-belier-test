@@ -1,0 +1,28 @@
+<div class="p-6 bg-white border border-gray-200 rounded-lg ">
+  <p class="font-semibold  text-xl mb-3">Produit </p>
+
+  <div class="rounded-xl border  ">
+    <app-cement-product [code]="productCode"></app-cement-product>
+
+    <div *ngIf="!pictureLoading && totalPrice" class="grid grid-cols-2 gap-1 bg-gray-100 py-2 px-2">
+      <div class="flex items-start justify-start  gap-2 flex-col">
+        <div class="font-semibold text-gray-400 text-sm">Quantité</div>
+        <div class="font-bold">{{ totalWeight }} T</div>
+      </div>
+      <div class="flex items-start justify-start gap-2  flex-col">
+        <div class="font-semibold  text-gray-400 text-sm">Prix total</div>
+        <div class="font-bold">{{ totalPrice | priceFormat }} FCFA</div>
+      </div>
+    </div>
+    <ng-container *ngIf="pictureLoading">
+      <div role="status" class="py-2 px-2 bg-gray-100 animate-pulse ">
+        <div class="w-full">
+
+          <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+          <div class="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+.custombox-content,
+.custombox-overlay {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.custombox-overlay {
+    z-index: 9997;
+    opacity: 0;
+    transition-delay: 0s;
+    transition-timing-function: linear;
+    transition-property: opacity;
+}
+.custombox-content {
+    z-index: 9999;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+}
+
+.custombox-content {
+    overflow-y: auto;
+}
+.custombox-content > * {
+    max-width: 100%;
+    max-height: 100;
+}
+.custombox-fullscreen.custombox-content {
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+.custombox-fullscreen.custombox-content > * {
+    width: 100%;
+    max-height: 100%;
+}
+
+.custombox-fadein.custombox-content {
+    opacity: 0;
+}
+.custombox-fadein.custombox-content.custombox-open {
+    animation-name: fadeIn;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    backface-visibility: hidden;
+}
+.custombox-fadein.custombox-content.custombox-close {
+    animation-name: fadeOut;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    backface-visibility: hidden;
+}
+.custombox-y-center {
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.modal-demo {
+    background-color: #fff;
+    width: 500px;
+    border-radius: 4px;
+    display: none;
+    position: relative;
+    margin: auto;
+    padding: 20px 25px;
+}
+
+.custombox-overlay {
+    z-index: 9997;
+    opacity: 0;
+    transition-delay: 0s;
+    transition-timing-function: linear;
+    transition-property: opacity;
+}
+
+.custombox-open.custombox-overlay {
+    animation: 300ms ease 0s 1 normal none running OpenFade;
+    opacity: 0.48;
+}
+
+.modal-demo .close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    //color: #f3f3f3;
+    background-color: #eee;
+    padding: 1px 8px;
+    border-radius: 13px;
+}
+
+button.close {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.sr-only {
+    border: 0;
+    clip: rect(0,0,0,0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.custom-modal-header-title {
+    font-size: 20px;
+    color: #c41130;
+    font-weight: 600;
+}
+
+.custom-modal-title {
+    margin: 20px 0px;
+    font-size: 20px; 
+    font-weight: 600;
+    color: #283139;
+}
+
+.custom-modal-text {
+    color: #9f9f9f;
+}
+
+.block-form {
+    margin: 20px 0px;
+}
+
+.marginToCover {
+    margin-left: -270px;
+}
+
+@media screen and (max-width: 1200px) {
+  
+    .custombox-content > * {
+        max-width: 95%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.7);
+        transition-property: all;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.7);
+        transition-property: all;
+    }
+}

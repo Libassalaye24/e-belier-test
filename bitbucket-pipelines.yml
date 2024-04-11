@@ -1,0 +1,22 @@
+# Check our guides at https://confluence.atlassian.com/x/zd-5Mw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+# image: maven:3.6.1
+# image: maven:3.5.2-jdk-8
+
+pipelines:
+  default:
+    - step:
+        name: Build Angular Project
+        size: 2x
+        script:
+          - docker build -t peopleinput/cement-app-web:latest .
+          - docker login -u peopleinput --password 25nj3YErsej8YE7
+          - docker push peopleinput/cement-app-web:latest
+definitions:
+  services:
+    docker:
+      memory: 4096
+options:
+  docker: true

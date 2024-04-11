@@ -1,0 +1,21 @@
+.offcanvas {
+    width: 500px;
+}
+
+.offcanvas-body {
+    position: relative;
+
+    .canvas-content {
+        padding-bottom: 50px;
+    }
+
+    .canva-footer {
+        background-color: #fff;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        border: solid 1px #dedede;
+        width: 499px;
+    }
+}

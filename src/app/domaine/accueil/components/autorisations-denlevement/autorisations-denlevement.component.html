@@ -1,0 +1,96 @@
+<h1 class="text-xl tracking-wide text-left text-ebelierLight font-normal mt-8">Autorisations d'enlévement </h1>
+
+<div class="  p-2">
+    <div class=" overflow-x-auto shadow-md sm:rounded-lg py-4 px-1">
+        <table class="table ">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" class="th">
+                        Numero
+                    </th>
+                    <th scope="col" class="th">
+                        Date Commande
+                    </th>
+                    <!-- <th scope="col" class="th">
+                        Date livraison souhaité
+                    </th> -->
+                    <th scope="col" class="th">
+                        Produit
+                    </th>
+                    <th scope="col" class="th">
+                        Quantité(T)
+                    </th>
+                    <th scope="col" class="th">
+                        Prix(FCFA)
+                    </th>
+                    <th scope="col" class="th">
+                        Statut
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+               <ng-container *ngIf="!isLoading">
+                    <tr *ngFor="let order of orders$; index as i" class="tr">
+
+                        <td class="td">
+                            {{order?.customerRef || order?.poNumber}}
+                        </td>
+                        <td class="td">
+                            {{order?.orderDateStr}}
+                        </td>
+                        <td class="td">
+                            {{order?.product?.name}}
+                        </td>
+                        <td class="td">
+                            {{order?.quantity || order?.totalWeight}}
+                        </td>
+                        <td class="td">
+                            {{order?.unitPrice || order?.totalPrice}}
+                        </td>
+
+                        <td class="td">
+                            <div class="flex items-center" >
+                                <div  *ngIf="order.status=='OPEN'" [ngClass]="{'bg-green-500' : order.status=='OPEN' }"  class="h-2.5 w-2.5 rounded-full mr-2"></div>{{order.status}}
+                            </div>
+                        </td>
+
+                    </tr>
+
+              </ng-container>
+
+                <ng-container *ngIf="isLoading">
+                    <tr class="tr">
+                        <td class="td" colspan="100%">
+                            <div  class=" animate-pulse">
+                                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td" colspan="100%">
+                            <div  class=" animate-pulse">
+                                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td" colspan="100%">
+                            <div  class=" animate-pulse">
+                                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-container>
+
+                <ng-container *ngIf="!isLoading && !orders$?.length">
+                    <tr>
+                        <td colspan="100%" class="text-center">
+                            Pas de commandes
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <!-- <app-paginator [page]="page" *ngIf="!isLoading && orders$?.responses" (pagerEvent)="paginate($event)"></app-paginator> -->
+    </div>
+</div>

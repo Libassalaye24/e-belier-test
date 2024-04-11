@@ -1,0 +1,57 @@
+<div class="grid grid-cols-1 gap-x-1 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-4 my-8 cursor-pointer">
+
+    <a  class="block group leading-normal border-l-2 hover:border-l-ebelierGreen max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-2xl shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <h5 class="mb-2  text-base font-light  text-ebelierGrey tracking-tight group-hover:font-normal ">Montant disponible </h5>
+        </div>
+        <!-- <p class="  group-hover:text-ebelierGreen font-semibold text-primary text-start mt-4 ">200 000 Tonnes</p> -->
+        <div class="text-start mt-4">
+            <div *ngIf="customerBalance$ as data; else loading" class="font-normal group-hover:text-ebelierGreen group-hover:font-bold text-black">
+                <!-- Display your data here -->
+                {{ data.values[0].openCreditLOGON | number | comaToSpace }}
+              </div>
+              <ng-template #loading><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-4"></div></ng-template>
+        </div>
+    </a>
+
+    <a  class="block group leading-normal border-l-2 p-6 bg-gray-50 hover:border-l-ebelierGreen border border-gray-200 rounded-2xl shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <h5 class="mb-2  tracking-tight text-base font-light text-ebelierGrey group-hover:font-normal">Bons non chargés </h5>
+        </div>
+        <div class="text-start mt-4">
+            <div *ngIf="customerBalance$ as data; else loading" class="font-normal group-hover:text-ebelierGreen group-hover:font-bold text-black">
+                <!-- Display your data here -->
+                {{ data.values[0].creditExposureLOGON | number | comaToSpace }}
+            </div>
+            <ng-template #loading><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-4"></div></ng-template>
+        </div>
+    </a>
+
+    <a  class="block group leading-normal border-l-2 p-6 bg-gray-50 hover:border-l-ebelierGreen border border-gray-200 rounded-2xl shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <h5 class="mb-2  text-base font-light text-ebelierGrey tracking-tight group-hover:font-normal ">Limite de crédit</h5>
+        </div>
+        <div class="text-start mt-4">
+            <div *ngIf="customerBalance$ as data; else loading" class="font-normal group-hover:text-ebelierGreen group-hover:font-bold text-black">
+                <!-- Display your data here -->
+                {{ data.values[0].creditLimit | number | comaToSpace }}
+              </div>
+              <ng-template #loading><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-4"></div></ng-template>
+        </div>
+    </a>
+
+    <a  class="block group leading-normal border-l-2 p-6 bg-gray-50 hover:border-l-ebelierGreen border border-gray-200 rounded-2xl shadow hover:shadow-lg hover:bg-white ">
+        <div class="flex items-center">
+            <h5 class="mb-2  text-base font-light text-ebelierGrey tracking-tight group-hover:font-normal ">Dette</h5>
+        </div>
+        <div class="text-start mt-4">
+            <div *ngIf="customerBalance$ as data; else loading" class="font-normal group-hover:text-ebelierGreen group-hover:font-bold text-black">
+                <!-- Display your data here -->
+                {{ data.values[0].creditExposureSAP | number | comaToSpace }}
+            </div>
+              <ng-template #loading><div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-32 mb-4"></div></ng-template>
+        </div>
+    </a>
+
+
+</div>

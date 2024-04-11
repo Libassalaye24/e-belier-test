@@ -1,0 +1,71 @@
+<div class="mx-3 my-6 p-4">
+  <h1 class="text-xl tracking-wide text-left text-primary font-normal">
+    Informations de l'entreprises
+  </h1>
+
+  <div
+    class="mt-4 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-6 my-4"
+  >
+    <div
+      class="flex items-center justify-start gap-2 cursor-pointer block group leading-normal border-l-2 max-w-sm p-6 border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white"
+    >
+      <div class="flex items-center">
+        <img
+          src="../../../../../assets/icones/accueil/icones/newcom.svg"
+          class="w-10"
+          alt=""
+        />
+      </div>
+      <div class="grid grid-cols-1 gap-1">
+        <div class="font-normal text-start text-sm">Nom de l'entreprise</div>
+        <div class="font-semibold text-primary text-start uppercase">
+          Lafarge HOLCIM
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="flex items-center justify-start gap-2 cursor-pointer block group leading-normal border-l-2 max-w-sm p-6 border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white"
+    >
+      <div class="flex items-center">
+        <img
+          src="../../../../../assets/icones/accueil/icones/newcom.svg"
+          class="w-10"
+          alt=""
+        />
+      </div>
+      <div class="grid grid-cols-1 gap-1">
+        <div class="font-normal text-start text-sm">Adresse d'affaires</div>
+        <div class="font-semibold text-primary text-start uppercase">abcd</div>
+      </div>
+    </div>
+
+    <div
+      class="flex items-center justify-start gap-2 cursor-pointer block group leading-normal border-l-2 max-w-sm p-6 border border-gray-200 rounded-lg shadow hover:shadow-lg hover:bg-white"
+    >
+      <div class="flex items-center">
+        <img
+          src="../../../../../assets/icones/accueil/icones/newcom.svg"
+          class="w-10"
+          alt=""
+        />
+      </div>
+      <div class="grid grid-cols-1 gap-1">
+        <div class="font-normal text-start text-sm">Contact</div>
+        <div class="font-semibold text-primary text-start uppercase">
+          23456789
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="text-xl mb-4 tracking-wide text-left text-primary font-normal">
+    Informations bancaires
+  </h1>
+
+  <div class="grid grid-cols-2 gap-2">
+    <ng-container *ngFor="let item of bankItems; index as i">
+      <app-info-bank [rib]="item.rib" [image]="item.image"></app-info-bank>
+    </ng-container>
+  </div>
+</div>

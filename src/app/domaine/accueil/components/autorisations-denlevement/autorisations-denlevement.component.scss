@@ -1,0 +1,10 @@
+@import 'src/assets/styles/_table.scss';
+@import 'src/assets/styles/_modal.scss';
+
+.custom-modal-demo {
+    background-color: #fff;
+    border-radius: 4px;
+    display: none;
+    position: relative;
+    margin: auto;
+}

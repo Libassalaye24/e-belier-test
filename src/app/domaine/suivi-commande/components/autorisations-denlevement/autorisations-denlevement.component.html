@@ -1,0 +1,88 @@
+
+
+<p class="text-1xl font-semibold text-gray-900 dark:text-white">Autorisations d'enlevement</p>
+
+  <div class="relative overflow-x-auto  shadow-md sm:rounded-lg">
+
+    <table class="table mt-4">
+        <thead class="thead border border-ebelierLight bg-white">
+            <tr>
+                <th scope="col" class="th">
+                    Numéro
+                </th>
+                <th scope="col" class="th">
+                    Date
+                </th>
+                <th scope="col" class="th">
+                  Produit
+              </th>
+                <th scope="col" class="th">
+                  Quantité (T)
+                </th>
+                <th scope="col" class="th">
+                  Prix (FCFA)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody class="tbody ">
+               <tr class="tr border border-none odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                 *ngFor="let item of singleOrders!; index as i" >
+                  <th scope="row" class="th">
+                      <div class=" first-child">
+
+                      AE N° {{ item?.id }}
+                      </div>
+                  </th>
+                  <td class="td">
+
+                    {{ item.orderDate | date : "dd/MM/yyyy" }}
+                  </td>
+                  <td class="td">
+                    {{ item.product.name }}
+                  </td>
+                  <td class="td">
+                      <span  class="text-ebelierGreen font-semibold">{{ item.quantity | number}} Tonnes</span>
+                  </td>
+                  <td class="td">
+                    {{ item.unitPrice | priceFormat }} FCFA
+                  </td>
+
+
+            </tr>
+
+
+            <ng-container *ngIf="isLoading">
+              <tr class="tr">
+                <td class="td" colspan="100%">
+                  <div class="animate-pulse">
+                    <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="tr">
+                <td class="td" colspan="100%">
+                  <div class="animate-pulse">
+                    <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="tr">
+                <td class="td" colspan="100%">
+                  <div class="animate-pulse">
+                    <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+
+            <ng-container *ngIf="!isLoading && !singleOrders">
+              <tr>
+                <td colspan="100%" class="text-center p-2">Aucun élément.</td>
+              </tr>
+            </ng-container>
+
+
+        </tbody>
+    </table>
+  </div>

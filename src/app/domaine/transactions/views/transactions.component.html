@@ -1,0 +1,77 @@
+<div class="mx-3 my-6 p-4">
+  <div class="flex flex-col">
+    <h1 class="text-3xl tracking-wide text-left text-primary font-normal">
+      Historique des transactions
+    </h1>
+  </div>
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="table mt-4">
+      <thead class="thead">
+        <tr>
+          <th scope="col" class="th">Achat</th>
+          <th scope="col" class="th">Désignation</th>
+          <th scope="col" class="th">Date</th>
+          <th scope="col" class="th">Montant (FCFA)</th>
+        </tr>
+      </thead>
+
+      <tbody class="tbody">
+        <ng-container *ngIf="!isLoading">
+          <tr class="tr" *ngFor="let item of transactions$; index as i">
+            <th scope="row" class="th">
+              <div class="first-child">N° {{ item.documentNumber }}</div>
+            </th>
+
+            <td class="td">
+              {{ item.textReference }}
+            </td>
+            <td class="td">
+              {{ item.transactionDate | date : "dd/MM/yyyy" }}
+            </td>
+            <td class="td font-semibold">
+              <span
+                [ngClass]="{
+                  'text-ebelierGreen': getStatus(item.transactionType),
+                  'text-ebelierRed': !getStatus(item.transactionType)
+                }"
+                class="font-semibold"
+              >
+                {{ item.transactionType == "INV" ? "-" : "" }}
+                {{ item.amount | priceFormat  }} FCFA
+              </span>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="isLoading">
+          <tr class="tr">
+            <td class="td" colspan="100%">
+              <div class="animate-pulse">
+                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="tr">
+            <td class="td" colspan="100%">
+              <div class="animate-pulse">
+                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+              </div>
+            </td>
+          </tr>
+          <tr class="tr">
+            <td class="td" colspan="100%">
+              <div class="animate-pulse">
+                <div class="h-2 bg-gray-200 rounded-full mb-4"></div>
+              </div>
+            </td>
+          </tr>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoading && !transactions$?.length">
+          <tr>
+            <td colspan="100%" class="text-center p-2">Pas de commandes</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

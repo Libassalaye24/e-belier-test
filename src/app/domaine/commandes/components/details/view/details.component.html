@@ -1,0 +1,68 @@
+<div class="mx-3 my-6 p-4">
+  <app-breadcrumb></app-breadcrumb>
+
+  <h1
+    class="text-2xl tracking-wide text-left text-primary font-normal mt-2 mb-1"
+  >
+    Autorisation d'enlevement
+  </h1>
+
+  <div class="grid grid-cols-2 gap-4 items-start mx-auto">
+    <div class="p-6 bg-white border border-gray-200 rounded-lg">
+      <div class="rounded-xl border px-2 py-2">
+        <app-cement-product *ngIf="order"
+          [code]="
+            order[0].orderDatas[0].logonCustomerOrderItem
+              .logonCustomerOrderItemData[0].sapMaterialNo!
+          "
+        ></app-cement-product>
+      </div>
+    </div>
+
+    <div class="flex-row gap-8 justify-center items-center rounded-lg max-w-sm">
+      <div
+        class="grid gap-4 bg-white border border-gray-200 max-w-full p-6 rounded-lg"
+      >
+        <div>
+          <p class="text-base text-gray-900 dark:text-white font-bold">
+            Détails commande
+          </p>
+        </div>
+        <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700" />
+
+        <div class="flex justify-between items-start">
+          <div class="text-sm text-gray-400 font-semibold">
+            N° du bon de commande
+          </div>
+          <div class="font-semibold text-gray-900 dark:text-white">
+            {{ customerOrderNumber! }}
+          </div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div class="text-sm text-gray-400 font-semibold">Conditionnement</div>
+          <div class="font-semibold text-gray-900 dark:text-white">VRAC</div>
+        </div>
+        <div class="flex justify-between items-start">
+          <div class="text-sm text-gray-400 font-semibold">Quantité</div>
+          <div *ngIf="order" class="font-semibold text-gray-900 dark:text-white">
+            {{
+              order[0].orderDatas[0].logonCustomerOrderItem
+                .logonCustomerOrderItemData[0].orderedQty!
+            }}
+            Tonnes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <p class="text-1xl font-semibold text-gray-900 dark:text-white mb-4 mt-4">
+    Liste des bons d'enlevement
+  </p>
+
+  <app-bon-denlevement *ngIf="order"
+                       [quantity]="order[0].orderDatas[0].logonCustomerOrderItem.logonCustomerOrderItemData[0].orderedQty"
+                       [productCode]="order[0].orderDatas[0].logonCustomerOrderItem.logonCustomerOrderItemData[0].sapMaterialNo!"
+                       [customerOrderNumber]="customerOrderNumber"></app-bon-denlevement>
+</div>

@@ -1,0 +1,35 @@
+<div class="mx-3 my-6 p-4">
+  <app-breadcrumb></app-breadcrumb>
+  <h1
+    class="text-2xl tracking-wide text-left text-primary font-normal mt-2 mb-1"
+  >
+    Détails commande
+  </h1>
+
+  <div class="grid grid-cols-2 gap-4 items-start mx-auto">
+    <app-produit
+      [productCode]="orders$.product.code!"
+      [loader]="pictureLoading"
+      [totalPrice]="orders$.totalPrice"
+      [totalWeight]="orders$.totalWeight"
+    ></app-produit>
+
+    <app-principal
+      [poNumber]="orders$.poNumber"
+      [totalWeight]="orders$.totalWeight"
+      [deliveryType]="orders$.incoterm"
+      [orderDate]="orders$.orderDateStr"
+      [comment]="orders$.poComment"
+      [loader]="pictureLoading"
+    >
+    </app-principal>
+  </div>
+
+  <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
+
+  <suvi-commande-autorisations-denlevement
+    [loader]="isLoading"
+    [orders]="orders$.singleOrders!"
+  >
+  </suvi-commande-autorisations-denlevement>
+</div>

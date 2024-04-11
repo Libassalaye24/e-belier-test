@@ -1,0 +1,2 @@
+    <h1 class="text-3xl tracking-wide text-left text-ebelierLight font-normal ">Bienvenue <span *ngIf="(getUserConnected() | async) as user" class="font-medium text-ebelierBlack"> {{ user.firstName }} {{ user.lastName }} ({{ user.customerCode }})</span></h1>
+    <app-bloc-stats></app-bloc-stats>

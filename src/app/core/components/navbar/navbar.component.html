@@ -1,0 +1,41 @@
+
+<nav class="bg-white border-gray-200 border-b-2 ">
+    <div class=" flex flex-wrap items-center justify-between mx-auto px-4 py-2">
+      <a href="#" class="flex items-center">
+        <img src="../../../assets/icones/e-belier.svg" class="h-11 mr-3" alt="Ebelier Logo" />
+        <span class=" text-xl font-bold  text-primary" >Ciment Bélier</span>
+      </a>
+
+      <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+        <ul class="flex flex-col font-medium p-3 md:p-0 mt-2 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
+      
+          <li>
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white focus:ring-0 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center inline-flex items-center ">
+                
+                <div class="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full ">
+                    <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                </div>
+
+                <div class="pl-3" >
+                    <div class="text-sm text-left font-light text-ebelierGreen">Connecté</div>
+                    <div class="text-sm font-light text-black" *ngIf="(getUserConnected() | async) as user"> {{ user.sub }} </div>
+                </div>  
+                <img src="../../../assets/icones/Others/dropdown.svg" class="h-5 mx-3" alt="Dropdown" />    
+            </button>
+              <!-- Dropdown menu -->
+              <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 ">
+                <ul class="py-2 text-sm text-gray-700 cursor-pointer" aria-labelledby="dropdownDefaultButton">
+                 
+                  <li>
+                    <a (click)="logout()" class="block px-4 py-2 hover:bg-gray-100 ">Déconnexion</a>
+                  </li>
+                </ul>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
